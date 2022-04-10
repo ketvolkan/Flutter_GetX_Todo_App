@@ -4,6 +4,8 @@ class Locales extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': {
+          'Edit': 'Edit',
+          'Edit Todo': 'Edit Todo',
           'Login': 'Login',
           'Username': 'Username',
           'Password': 'Password',
@@ -17,9 +19,11 @@ class Locales extends Translations {
           'Change Theme': 'Change Theme',
           'Change Language': 'Change Language',
           'Light Theme': 'Light Theme',
-          'Dark Theme': 'Dark Theme'
+          'Dark Theme': 'Dark Theme',
         },
         'tr_TR': {
+          'Edit': 'Düzenle',
+          'Edit Todo': 'Yapılıcağı Düzenle',
           'Login': 'Giriş Yap',
           'Username': 'Kullanıcı Adı',
           'Password': 'Şifre',
@@ -33,7 +37,7 @@ class Locales extends Translations {
           'Change Theme': 'Temayı Değiştir',
           'Change Language': 'Dili Değiştir',
           'Light Theme': 'Açık Tema',
-          'Dark Theme': 'Koyu Tema'
+          'Dark Theme': 'Koyu Tema',
         }
       };
 }

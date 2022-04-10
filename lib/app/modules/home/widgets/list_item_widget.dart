@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_todo_app/app/modules/home/controllers/home_controller.dart';
+import 'package:getx_todo_app/app/modules/home/widgets/edit_dialog.dart';
 
 class ListItemWidget extends StatelessWidget {
   const ListItemWidget({Key? key}) : super(key: key);
@@ -15,13 +16,17 @@ class ListItemWidget extends StatelessWidget {
         controller.deleteFromList(controller.currentList.value[index].id);
       },
       child: GestureDetector(
+        onDoubleTap: () {
+          controller.editingId = controller.currentList.value[index].id;
+          Get.defaultDialog(title: "Edit Todo".tr, content: EditDialog());
+        },
         onTap: () {
           controller.setComplated(controller.currentList.value[index].id);
         },
         child: Obx(
           () => Card(
             color: Get.theme.appBarTheme.backgroundColor,
-            elevation: 40,
+            elevation: 15,
             shadowColor: controller.currentList.value[index].complated.value
                 ? Colors.red
                 : Colors.green,

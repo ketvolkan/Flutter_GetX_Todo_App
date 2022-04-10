@@ -16,7 +16,9 @@ class ListViewWidget extends StatelessWidget {
       height: Get.height - 240,
       child: Obx(
         () => ListView.builder(
-          itemCount: controller.currentList.value.length,
+          itemCount: controller.currentList.value != null
+              ? controller.currentList.value.length
+              : 0,
           itemBuilder: (context, index) {
             controller.currentIndex = index;
             return const ListItemWidget();
