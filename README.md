@@ -3,6 +3,7 @@
 &emsp;get_cli: ^1.7.1 <br>
 &emsp;get: 4.6.1 <br>
 &emsp;uuid: ^3.0.6<br>
+&emsp;get_storage: ^2.0.3<br>
 
 <h3> versions: </h3>
 &emsp;dart: 2.16.1
@@ -14,11 +15,6 @@
 &emsp;1: State Managment için GetX Kullanılmıştır
 
 <h3> in-app image: </h3>
-
-<br>
-
-![1](https://user-images.githubusercontent.com/80161667/162601152-d3af02bb-3473-48ba-a0d7-bab6a1148c3b.png)
-
 
 
 <br>
@@ -39,15 +35,12 @@
 
 <br>
 
-![5](https://user-images.githubusercontent.com/80161667/162601163-bc2951cf-bb0e-4a70-ab22-e7299699c4f8.png)
-
-
-<br>
-
 ![6](https://user-images.githubusercontent.com/80161667/162601164-9e199c47-d44e-44fa-b2a6-a27ef9bdda18.png)
 
 
 
 <br>
 
- ![7](https://user-images.githubusercontent.com/80161667/162601165-d95e9e4c-a9f1-4ed4-bc01-305c376e6a8e.png)
+![5](https://user-images.githubusercontent.com/80161667/162601163-bc2951cf-bb0e-4a70-ab22-e7299699c4f8.png)
+
+
