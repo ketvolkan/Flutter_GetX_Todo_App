@@ -26,7 +26,7 @@ class ListItemWidget extends StatelessWidget {
         child: Obx(
           () => Card(
             color: Get.theme.appBarTheme.backgroundColor,
-            elevation: 15,
+            elevation: 5,
             shadowColor: controller.currentList.value[index].complated.value
                 ? Colors.green
                 : Colors.red,
@@ -34,7 +34,9 @@ class ListItemWidget extends StatelessWidget {
                 BeveledRectangleBorder(borderRadius: BorderRadius.circular(15)),
             child: ListTile(
               leading: Icon(
-                Icons.access_alarm_outlined,
+                controller.currentList.value[index].complated.value
+                    ? Icons.done_all
+                    : Icons.access_alarm_outlined,
                 color: Get.theme.appBarTheme.foregroundColor,
               ),
               title: Obx(() => Text(

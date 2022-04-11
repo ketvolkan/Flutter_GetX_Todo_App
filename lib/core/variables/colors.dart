@@ -17,7 +17,7 @@ const Color deliveredTextColor = Color(0xFF36EA6B);
 const Color returnTextColor = Color.fromARGB(255, 90, 25, 255);
 
 // Common
-const Color primaryColor = Color(0xFF353897);
+const Color primaryColor = Color.fromARGB(255, 23, 102, 116);
 const Color primaryColorDark = Colors.white;
 Color errorColor = Colors.red[400]!;
 Color buttonColor = const Color.fromARGB(255, 246, 246, 246);
@@ -44,7 +44,7 @@ const mainAnimationDuration = Duration(milliseconds: 200);
 const mainDuration = Duration(milliseconds: 250);
 
 // For login and enroll screen theme
-const Color loginTheme = Color(0xff1a263a);
+const Color loginTheme = Color.fromARGB(255, 23, 102, 116);
 
 Color get getTextColor =>
     Get.isDarkMode ? Colors.white : const Color.fromARGB(255, 107, 107, 107);

@@ -4,7 +4,7 @@ import '../../core/variables/colors.dart';
 
 class AppThemes {
   static ThemeData light = ThemeData(
-    primaryColorDark: primaryColorDark,
+    primaryColorDark: Color.fromARGB(255, 23, 102, 116),
     primaryColor: primaryColor,
     colorScheme: ColorScheme.fromSwatch().copyWith(
       brightness: Brightness.light,
