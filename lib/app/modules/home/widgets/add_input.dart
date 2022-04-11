@@ -15,7 +15,13 @@ class SearchInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onFieldSubmitted: (value) {
-        controller.addTodo(Todo(id: const Uuid().v4(), text: value));
+        controller.addTodo(
+          Todo(
+            id: const Uuid().v4(),
+            text: value,
+            complated: Rx(false),
+          ),
+        );
       },
       decoration: InputDecoration(
         hintText: 'Add Todo'.tr,

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:getx_todo_app/app/modules/home/models/Todo.dart';
 
 class CustomStorageService extends GetxService {
   static final GetStorage _storage = GetStorage();
@@ -10,12 +11,15 @@ class CustomStorageService extends GetxService {
     return _storage.hasData(key);
   }
 
-  Future<void> write(String key, dynamic value) async {
+  Future<void> write(String key, List<Todo> value) async {
+    var json = jsonEncode(value);
     await _storage.write(key, json);
   }
 
   T? read<T>(String key) {
-    return _storage.read(key);
+    if (_storage.read(key) != null) {
+      return jsonDecode(_storage.read(key));
+    }
   }
 
   Future<void> remove(String key) async {

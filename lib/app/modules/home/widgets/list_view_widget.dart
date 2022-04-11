@@ -12,10 +12,10 @@ class ListViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: Get.height - 240,
+    return Expanded(
       child: Obx(
         () => ListView.builder(
+          shrinkWrap: false,
           itemCount: controller.currentList.value != null
               ? controller.currentList.value.length
               : 0,

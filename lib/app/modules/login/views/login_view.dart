@@ -39,9 +39,11 @@ class FormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: Column(
-        children: const [UsernameWidget(), PasswordWidget(), SubmitButton()],
+    return Expanded(
+      child: Form(
+        child: Column(
+          children: const [UsernameWidget(), PasswordWidget(), SubmitButton()],
+        ),
       ),
     );
   }

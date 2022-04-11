@@ -28,8 +28,8 @@ class ListItemWidget extends StatelessWidget {
             color: Get.theme.appBarTheme.backgroundColor,
             elevation: 15,
             shadowColor: controller.currentList.value[index].complated.value
-                ? Colors.red
-                : Colors.green,
+                ? Colors.green
+                : Colors.red,
             shape:
                 BeveledRectangleBorder(borderRadius: BorderRadius.circular(15)),
             child: ListTile(

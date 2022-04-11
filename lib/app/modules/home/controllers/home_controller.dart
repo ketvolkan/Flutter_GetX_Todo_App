@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
 import 'package:getx_todo_app/app/modules/home/models/Todo.dart';
 import 'package:getx_todo_app/core/services/custom_storage_service.dart';
@@ -14,17 +16,19 @@ class HomeController extends GetxController {
   var currentIndex = 0;
 
   void list() {
+    storageService.write('liste', allList.value.toList());
+    readData();
     if (state == stateList.all) {
       currentList.value = allList.value;
     } else if (state == stateList.complated) {
       currentList.value = [
         for (final todo in allList.value)
-          if (todo.complated == false) todo,
+          if (todo.complated != false) todo,
       ];
     } else {
       currentList.value = [
         for (final todo in allList.value)
-          if (todo.complated != false) todo,
+          if (todo.complated == false) todo,
       ];
     }
   }
@@ -44,7 +48,11 @@ class HomeController extends GetxController {
 
   int returnListLength() {
     if (allList.value != null) {
-      return allList.value.length;
+      List<Todo> uncomplated = [
+        for (final todo in allList.value)
+          if (todo.complated.value == false) todo
+      ];
+      return uncomplated.length;
     } else {
       return 0;
     }
@@ -52,7 +60,7 @@ class HomeController extends GetxController {
 
   void addTodo(Todo todo) {
     allList.value.add(todo);
-    storageService.write("liste", allList.value);
+
     list();
   }
 
@@ -61,8 +69,9 @@ class HomeController extends GetxController {
       for (final todo in allList.value)
         if (todo.id == id) todo,
     ].first;
+
     updatedTodo.text = text;
-    storageService.write("liste", allList.value);
+
     list();
   }
 
@@ -71,7 +80,7 @@ class HomeController extends GetxController {
       for (final todo in allList.value)
         if (todo.id != id) todo,
     ];
-    storageService.write("liste", allList.value);
+    list();
   }
 
   @override
@@ -79,14 +88,32 @@ class HomeController extends GetxController {
     super.onReady();
   }
 
+  void readData() {
+    List storedTodo = storageService.read<List>('liste') != null
+        ? storageService.read<List>('liste')!
+        : [];
+    if (storedTodo != null) {
+      allList.value = storedTodo.map((e) => Todo.fromJson(e)).toList();
+    }
+  }
+
   @override
   void onInit() {
     super.onInit();
-    if (storageService.read("liste") == null) {
-      storageService.write("liste", []);
+    // storageService.cleanStorage();
+    if (storageService == null) {
+      storageService.write(
+        "liste",
+        [
+          Todo(
+            id: Uuid().v4(),
+            text: "example",
+            complated: Rx(false),
+          )
+        ],
+      );
     }
-
-    allList.value = storageService.read("liste");
+    readData();
     currentList.value = allList.value;
   }
 
